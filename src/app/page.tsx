@@ -1,5 +1,15 @@
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Main from '../components/Main';
+
 export default function Home() {
-  return (
-    <h1>Regra de 3</h1>
-  );
+	return (
+		<div className='bg-linear-to-br from-black to-gray-900 min-h-screen w-full flex justify-center items-center'>
+			<div>
+				<Header />
+				<Main />
+				<Footer />
+			</div>
+		</div>
+	);
 }
