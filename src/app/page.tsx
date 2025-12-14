@@ -4,7 +4,7 @@ import Main from '../components/Main';
 
 export default function Home() {
 	return (
-		<div className='bg-linear-to-br from-black to-gray-900 min-h-screen w-full flex justify-center items-center'>
+		<div className='bg-black min-h-screen w-full flex justify-center items-center'>
 			<div>
 				<Header />
 				<Main />
