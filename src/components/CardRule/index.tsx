@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
-import { Card } from '../ui/card';
 import { Input } from '../ui/input';
 
 export default function CardRule() {
@@ -38,7 +37,7 @@ export default function CardRule() {
 		}
 	}, [inputA, inputB, inputC]);
 	return (
-		<Card className='bg-white border-none p-4 w-11/12 sm:p-10 sm:w-full'>
+		<div className='bg-white border-none p-4 w-11/12 sm:p-10 sm:w-full'>
 			<div className='flex items-center'>
 				<Input
 					type='number'
@@ -79,6 +78,6 @@ export default function CardRule() {
 					{''}
 				</Button>
 			</div>
-		</Card>
+		</div>
 	);
 }
