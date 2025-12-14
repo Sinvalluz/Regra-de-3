@@ -18,7 +18,7 @@ export default function CardRule() {
 				setResult('Copiado!');
 				setTimeout(() => {
 					setResult(((Number(inputB) * Number(inputC)) / Number(inputA)).toFixed(2));
-				}, 1000);
+				}, 1500);
 			} catch (err) {
 				console.error('Falha ao copiar texto: ', err);
 				setResult('Erro ao Copiar!');
@@ -37,44 +37,51 @@ export default function CardRule() {
 		}
 	}, [inputA, inputB, inputC]);
 	return (
-		<div className='bg-white border-none p-4 w-11/12 sm:p-10 sm:w-full'>
+		<div className='w-11/12 flex flex-col gap-4'>
 			<div className='flex items-center'>
 				<Input
 					type='number'
-					className='flex-1 text-center border-2 border-gray-900 focus-visible:border-gray-500'
+					className='flex-1 text-center border text-white bg-white/5  border-white/10 placeholder:text-white/10 px-2 py-5 focus-visible:ring-0'
 					placeholder='A'
 					onChange={(e) => setInputA(e.target.value)}
 					value={inputA}
 				/>
 
-				<div className='whitespace-nowrap bg-gray-900 text-white px-4'>Está para</div>
+				<div className='whitespace-nowrap bg-white/20 text-white px-4'>Está para</div>
 
 				<Input
 					type='number'
-					className='flex-1 text-center border-2 border-gray-900'
+					className='flex-1 text-center border text-white bg-white/5 border-white/10 placeholder:text-white/10 px-2 py-5 focus-visible:ring-0'
 					placeholder='B'
 					onChange={(e) => setInputB(e.target.value)}
 					value={inputB}
 				/>
 			</div>
-
 			<div className='flex items-center'>
 				<Input
 					type='number'
-					className='flex-1 text-center border-2 border-gray-900'
+					className='flex-1 text-center border text-white bg-white/5  border-white/10 placeholder:text-white/10 px-2 py-5 focus-visible:ring-0'
 					placeholder='C'
 					onChange={(e) => setInputC(e.target.value)}
 					value={inputC}
 				/>
 
-				<div className='whitespace-nowrap bg-gray-700 text-white px-4'>Está para</div>
+				<div className='whitespace-nowrap bg-white/40 text-white px-4 '>Está para</div>
 
 				<Button
-					className='flex-1 w-full h-9 bg-gray-900 py-1 px-3 cursor-pointer box-border overflow-hidden  hover:bg-gray-700'
+					className='flex-1 w-full h-9 bg-white/5 py-5 px-2 cursor-pointer box-border overflow-hidden border text-white border-white/10  hover:bg-white/10 transition'
 					onClick={copyTextButton}
 					onMouseEnter={() => setIsHovered(true)}
 					onMouseLeave={() => setIsHovered(false)}>
-					{isHovered && result !== null ? 'Copiar' : result === null ? 'Resultado' : result}
+					{isHovered &&
+					result !== null &&
+					result !== 'Resultado' &&
+					result !== 'Copiado!' &&
+					result !== 'Erro ao Copiar!'
+						? 'Copiar'
+						: result === null
+						? 'Resultado'
+						: result}
 					{''}
 				</Button>
 			</div>
