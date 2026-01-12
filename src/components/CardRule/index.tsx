@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import { regraDeTres } from '@/utils/regraDeTres';
 
 export default function CardRule() {
 	const [inputA, setInputA] = useState<string>('');
@@ -17,7 +18,7 @@ export default function CardRule() {
 				await navigator.clipboard.writeText(result);
 				setResult('Copiado!');
 				setTimeout(() => {
-					setResult(((Number(inputB) * Number(inputC)) / Number(inputA)).toFixed(2));
+					setResult(regraDeTres(Number(inputA), Number(inputB), Number(inputC)).toString());
 				}, 1500);
 			} catch (err) {
 				console.error('Falha ao copiar texto: ', err);
@@ -33,7 +34,7 @@ export default function CardRule() {
 		if (!inputA || !inputB || !inputC) {
 			setResult('Resultado');
 		} else {
-			setResult(((Number(inputB) * Number(inputC)) / Number(inputA)).toFixed(2));
+			setResult(regraDeTres(Number(inputA), Number(inputB), Number(inputC)).toString());
 		}
 	}, [inputA, inputB, inputC]);
 	return (
